@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath="$PWD/uhura" config.wsgi:application
