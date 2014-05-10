@@ -1,25 +1,35 @@
-uhura
+exchange
 ==============================
 
-A test project
+A simple currency exchange app :)
+
 
 Getting up and running
 ----------------------
 
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
-
+Base requirements are:
 * pip
 * virtualenv
 * PostgreSQL
 
-First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
+First make sure to create and activate a virtualenv::
 
     $ pip install -r requirements/local.txt
 
-.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+You can now run the usual Django ``runserver`` command::
 
-You can now run the usual Django ``runserver`` command (replace ``yourapp`` with the name of the directory containing the Django project)::
+    $ python uhura/manage.py runserver
 
-    $ python yourapp/manage.py runserver
+Celery and Celery Beat are used for periodic background jobs. To run celery::
 
-The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work.
+    $ python uhura/manage.py celery worker --loglevel=info -B
+
+
+Other Details
+-------------
+
+The exchange data is taken from http://www.quandl.com/ via API. The data is retrived and saved
+ to database.
+
+Periodic tasks run in background every day to update and sync the data. For that, distributed task
+queue package ``celery`` is used, especially `Beat` feature which works like crontab in Unix.
