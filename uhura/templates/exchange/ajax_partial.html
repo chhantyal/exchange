@@ -1,0 +1,25 @@
+{% if rate_asked %}
+    <h3>Exchange Rate for {{ rate_asked.exchange_date }}</h3>
+    <div class="col-lg-6">
+      <div class="list-group">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th> Date </th>
+              <th> EURO </th>
+              <th> USD </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="id-{{ rate_today.id }}">
+              <td>{{ rate_asked.exchange_date }}</td>
+              <td>{{ rate_asked.euro }}</td>
+              <td>{{ rate_asked.usd }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+ {% else %}
+     <h3 class="alert alert-warning"> Exchange rate for above date is not available. Please enter different date!</h3>
+ {% endif %}
