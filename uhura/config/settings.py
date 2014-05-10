@@ -86,7 +86,7 @@ class Common(Configuration):
 
     ########## DEBUG
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-    DEBUG = values.BooleanValue(False)
+    DEBUG = values.BooleanValue(True)
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
     TEMPLATE_DEBUG = DEBUG
