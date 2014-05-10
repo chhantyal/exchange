@@ -4,8 +4,8 @@ exchange
 A simple currency exchange app :)
 
 
-Getting up and running
-----------------------
+Install
+-------
 
 Base requirements are::
 * pip
@@ -22,6 +22,10 @@ variable must be set::
     $ add2virtualenv .
     $ echo "export DJANGO_SETTINGS_MODULE=uhura.config.settings" >> $VIRTUAL_ENV/bin/postactivate
     $ python uhura/manage.py runserver
+
+Create Postgres database with name ``uhura``::
+
+    $ create database uhura;
 
 Celery and Celery Beat are used for periodic background jobs. To run celery::
 
