@@ -27,6 +27,10 @@ Create Postgres database with name ``uhura``::
 
     $ create database uhura;
 
+There is Postgres dump file ``uhura.sql``, which can be restored for testing purpose
+
+    $ psql -U [user] -d uhura -f uhura.sql
+
 Celery and Celery Beat are used for periodic background jobs. To run celery::
 
     $ python uhura/manage.py celery worker --loglevel=info -B
